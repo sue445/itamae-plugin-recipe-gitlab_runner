@@ -57,8 +57,8 @@ requirements [Docker](https://www.docker.com/)
 e.g) test on CentOS 7.0
 
 ```sh
-docker run --privileged -d --name itamae-plugin-dev centos:7 /sbin/init
-bundle exec rake itamae:apply spec
+bundle exec itamae docker --node-yaml=spec/recipes/node.yml spec/recipes/install.rb --image=centos:7 --tag itamae-plugin:latest
+DOCKER_IMAGE=itamae-plugin:latest bundle exec rspec
 ```
 
 ## Contributing
