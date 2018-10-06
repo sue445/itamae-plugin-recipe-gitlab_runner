@@ -1,7 +1,9 @@
 require "bundler/gem_tasks"
 
+ENV["ITAMAE_CONTAINER"] ||= "itamae-plugin-dev"
+
 namespace :itamae do
-  itamae_command = "itamae docker --node-yaml=spec/recipes/node.yml spec/recipes/install.rb --container=container-with-service --tag itamae-plugin:latest"
+  itamae_command = "itamae docker --node-yaml=spec/recipes/node.yml spec/recipes/install.rb --container=#{ENV["ITAMAE_CONTAINER"]} --tag itamae-plugin:latest"
 
   desc "Run itamae"
   task :apply do
@@ -16,7 +18,7 @@ end
 
 desc "Run serverspec"
 task :spec do
-  sh "DOCKER_CONTAINER=container-with-service rspec"
+  sh "DOCKER_CONTAINER=#{ENV["ITAMAE_CONTAINER"]} rspec"
 end
 
 task :default => ["itamae:apply", "spec"]

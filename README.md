@@ -1,8 +1,6 @@
 # Itamae::Plugin::Recipe::GitlabRunner
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/itamae/plugin/recipe/gitlab_runner`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Itamae plugin to install [GitLab Runner](https://docs.gitlab.com/runner/)
 
 ## Installation
 
@@ -22,7 +20,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# recipe.rb
+include_recipe "consul"
+```
+
+Or `include_recipe` just what you need manually:
+
+```ruby
+include_recipe "gitlab_runner::install"
+```
+
+After, you need to register a runner
+
+https://docs.gitlab.com/runner/register/index.html
+
+### Node
+
+```yml
+# node.yml
+gitlab-runner:
+  version: "10.0.0"
+```
 
 ## Development
 
@@ -30,9 +49,19 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+## Testing
+requirements [Docker](https://www.docker.com/)
+
+e.g) test on CentOS 7.0
+
+```sh
+docker run --privileged -d --name itamae-plugin-dev centos:7 /sbin/init
+bundle exec rake itamae:apply spec
+```
+
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/itamae-plugin-recipe-gitlab_runner.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sue445/itamae-plugin-recipe-gitlab_runner.
 
 ## License
 
