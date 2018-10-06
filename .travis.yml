@@ -1,7 +1,25 @@
----
-sudo: false
 language: ruby
-cache: bundler
+sudo: required
+services:
+- docker
 rvm:
-  - 2.5.1
-before_install: gem install bundler -v 1.16.6
+- 2.5
+env:
+- IMAGE=centos:7
+- IMAGE=debian:jessie
+bundler_args: "--jobs=4"
+cache: bundler
+before_install:
+- gem update --system --no-document
+- gem install bundler --no-document
+before_script:
+- docker run --privileged -d --name itamae-plugin-dev $IMAGE /sbin/init
+script:
+- bundle exec rake itamae:apply spec
+branches:
+  only:
+  - master
+notifications:
+  email: false
+  slack:
+    secure: Wd60nazhMcyK7w+j4owi7ZWBCbEl0ZdPkp+Ir+c1jYwXNC4kDF5bSU0YfBtApiDBozI7OGe8U66Z6CTGyvbSt0+pM17xGW9COz/sDDwUkxawr/X+ZVYzLx0QwIYhnwqv3A0Yy8lAAAeB/GNaVzvVajflJrLY4O4qin7vpoVOexrLFY08brFBr67BxgZJBprtgjgKxyIFRYBln/1pSfDG/rtTxlpqDnh7tPk0lysNznd350Sj6Lh02ZYblBwyypo/BTF7nflgi7cxFLaXTNVJ4d5xrrq2QkoTcuqm3fw897hp0lCHitu3EnPur7Aro7C+nzejIK2mJBgRI7gBsmOj+cQBWDfRh/CIsGIZ3+lkOC+mfI0GH18kvnaSpc9WzvjoIDHiJZxtuVrqHdUiYaf+ewRkHi5IaOO3hlWr1KrIj+2A83KrbOjsGY9sE9jN8eD0jkfG7bsqLhpNv7CX+GVZSsAaapYl2WHprN0eVnvfCKbGB/GJUGq5BJxdxrSlioKuNeCNlUavfSnjUAknf3g+zDh+3RDlPCnnFNtp4i45tBmAUwf66JMmN+8UdDCLL+9teQjsVmrQh/JW/ExM/OYZF5ceW8yXNams+GjzKrayzoSHGJIRhWHzsaG1unmkvbIM7OcRdrNmudHBUP46W25TwXq4JXufmbojtShuNTyzTSA=

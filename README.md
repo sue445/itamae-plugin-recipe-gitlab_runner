@@ -2,6 +2,8 @@
 
 Itamae plugin to install [GitLab Runner](https://docs.gitlab.com/runner/)
 
+[![Build Status](https://travis-ci.org/sue445/itamae-plugin-recipe-gitlab_runner.svg?branch=master)](https://travis-ci.org/sue445/itamae-plugin-recipe-gitlab_runner)
+
 ## Installation
 
 Add this line to your application's Gemfile:
