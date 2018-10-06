@@ -1,7 +1,7 @@
 case node[:platform]
 when "debian"
-  include_recipe "gitlab_runner::install::debian"
+  include_recipe "gitlab_runner::install::deb"
 
-when "redhat"
-  include_recipe "gitlab_runner::install::centos"
+when "redhat", "amazon"
+  include_recipe "gitlab_runner::install::rpm"
 end
