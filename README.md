@@ -40,7 +40,7 @@ https://docs.gitlab.com/runner/register/index.html
 ```yml
 # node.yml
 gitlab-runner:
-  version: "10.0.0"
+  version: "10.0.0" # optional. Install latest version if omitted
 ```
 
 ## Development
