@@ -1,5 +1,7 @@
 # c.f. https://docs.gitlab.com/runner/install/linux-repository.html
 
+package "curl"
+
 execute "curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash" do
   not_if "ls /etc/apt/sources.list.d/runner_gitlab-runner.list"
 end
