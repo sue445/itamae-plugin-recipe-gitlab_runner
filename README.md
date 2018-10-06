@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ```ruby
 # recipe.rb
-include_recipe "consul"
+include_recipe "gitlab_runner"
 ```
 
 Or `include_recipe` just what you need manually:
