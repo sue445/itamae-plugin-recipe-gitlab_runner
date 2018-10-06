@@ -1,4 +1,7 @@
 case node[:platform]
+when "debian"
+  execute "apt-get update"
+
 when "redhat"
   node["gitlab-runner"][:version] << "-1"
 end
