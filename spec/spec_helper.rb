@@ -1,14 +1,29 @@
-require "bundler/setup"
-require "itamae/plugin/recipe/gitlab_runner"
+require "serverspec"
+require "docker"
 
-RSpec.configure do |config|
-  # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
+set :backend, :docker
 
-  # Disable RSpec exposing methods globally on `Module` and `main`
-  config.disable_monkey_patching!
+set :docker_image, ENV['DOCKER_IMAGE']
+set :docker_container, ENV['DOCKER_CONTAINER']
 
-  config.expect_with :rspec do |c|
-    c.syntax = :expect
-  end
+# Disable sudo
+# set :disable_sudo, true
+
+
+# Set environment variables
+# set :env, :LANG => 'C', :LC_MESSAGES => 'C'
+
+# Set PATH
+# set :path, '/sbin:/usr/local/sbin:$PATH'
+
+# via. http://qiita.com/sue445/items/b67b0e7209a7fae1a52a
+require "yaml"
+require "itamae/node"
+
+def node
+  return @node if @node
+
+  hash = YAML.load_file("#{__dir__}/recipes/node.yml")
+
+  @node = Itamae::Node.new(hash, Specinfra.backend)
 end
