@@ -1,6 +1,22 @@
 require "bundler/gem_tasks"
-require "rspec/core/rake_task"
 
-RSpec::Core::RakeTask.new(:spec)
+namespace :itamae do
+  itamae_command = "itamae docker --node-yaml=spec/recipes/node.yml spec/recipes/install.rb --container=container-with-service --tag itamae-plugin:latest"
 
-task :default => :spec
+  desc "Run itamae"
+  task :apply do
+    sh itamae_command
+  end
+
+  desc "Run itamae (dry-run)"
+  task :dry_run do
+    sh "#{itamae_command} --dry-run"
+  end
+end
+
+desc "Run serverspec"
+task :spec do
+  sh "DOCKER_CONTAINER=container-with-service rspec"
+end
+
+task :default => ["itamae:apply", "spec"]
