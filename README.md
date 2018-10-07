@@ -32,11 +32,8 @@ Or `include_recipe` just what you need manually:
 
 ```ruby
 include_recipe "gitlab_runner::install"
+include_recipe "gitlab_runner::register_gitlab_runner"
 ```
-
-After, you need to register a runner
-
-https://docs.gitlab.com/runner/register/index.html
 
 ### Node
 
@@ -44,6 +41,31 @@ https://docs.gitlab.com/runner/register/index.html
 # node.yml
 gitlab-runner:
   version: "10.0.0" # optional. Install latest version if omitted
+```
+
+### `register_gitlab_runner`
+Register a gitlab_runner
+
+* `name` (`String`)
+  * runner name
+* `options` (`Array`, `String`)
+  * args for `gitlab-runner register`
+  * `--non-interactive`, `--name` and `--description` are needless
+  * c.f. https://docs.gitlab.com/runner/register/#one-line-registration-command
+
+e.g)
+
+```ruby
+register_gitlab_runner "docker-runner" do
+  options [
+            "--url", "https://gitlab.com/",
+            "--registration-token", "PROJECT_REGISTRATION_TOKEN",
+            "--executor", "docker",
+            "--tag-list", "docker,aws",
+            "--run-untagged",
+            "--locked", "false",
+          ]
+end
 ```
 
 ## Development
