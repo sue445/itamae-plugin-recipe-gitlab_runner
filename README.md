@@ -61,9 +61,10 @@ register_gitlab_runner "docker-runner" do
             "--url", "https://gitlab.com/",
             "--registration-token", "PROJECT_REGISTRATION_TOKEN",
             "--executor", "docker",
+            "--docker-image", "alpine:3",
             "--tag-list", "docker,aws",
             "--run-untagged",
-            "--locked", "false",
+            "--locked=false",
           ]
 end
 ```
