@@ -8,6 +8,6 @@ define :register_gitlab_runner, options: [], config: "/etc/gitlab-runner/config.
   register_args.compact!
 
   execute "gitlab-runner register #{register_args.join(" ")}" do
-    not_if "gitlab-runner list --config #{config_file} | grep '#{runner_name}'"
+    not_if "gitlab-runner list --config #{config_file} 2>&1 1>/dev/null | grep '#{runner_name}'"
   end
 end
