@@ -52,6 +52,8 @@ Register a gitlab_runner
   * args for `gitlab-runner register`
   * `--non-interactive`, `--name` and `--description` are needless
   * c.f. https://docs.gitlab.com/runner/register/#one-line-registration-command
+* `config` (`String`)
+  * config file (default: `/etc/gitlab-runner/config.toml`)
 
 e.g)
 
