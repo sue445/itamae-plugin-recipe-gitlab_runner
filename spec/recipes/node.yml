@@ -1,2 +1,2 @@
-gitlab-runner:
-  version: "10.0.0"
+# gitlab-runner:
+#   version: "10.0.0"
