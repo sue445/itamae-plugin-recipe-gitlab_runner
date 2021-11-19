@@ -1,5 +1,11 @@
 ## master
-[full changelog](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/compare/v0.2.2...master)
+[full changelog](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/compare/v0.2.3...master)
+
+## 0.2.3
+[full changelog](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/compare/v0.2.2...v0.2.3)
+
+* Enable MFA requirement for gem releasing
+  * https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/pull/23
 
 ## 0.2.2
 [full changelog](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/compare/v0.2.1...v0.2.2)
