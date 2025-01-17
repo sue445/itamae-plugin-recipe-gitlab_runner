@@ -3,7 +3,7 @@
 Itamae plugin to install [GitLab Runner](https://docs.gitlab.com/runner/)
 
 [![Gem Version](https://badge.fury.io/rb/itamae-plugin-recipe-gitlab_runner.svg)](https://badge.fury.io/rb/itamae-plugin-recipe-gitlab_runner)
-[![Build Status](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/workflows/test/badge.svg?branch=master)](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/actions?query=workflow%3Atest)
+[![test](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/actions/workflows/test.yml/badge.svg)](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/actions/workflows/test.yml)
 
 ## Installation
 
