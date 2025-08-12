@@ -24,6 +24,8 @@ jobs:
           - "2.3"
         image:
           - debian:buster
+          - debian:bullseye
+          - debian:bookworm
           - amazonlinux:2
 
     steps:
