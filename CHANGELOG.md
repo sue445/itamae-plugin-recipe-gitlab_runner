@@ -1,5 +1,11 @@
 ## master
-[full changelog](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/compare/v0.2.3...master)
+[full changelog](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/compare/v0.2.4...master)
+
+## [0.2.4](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/releases/tag/v0.2.4)
+[full changelog](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/compare/v0.2.3...v0.2.4)
+
+* Release gem from GitHub Actions
+  * https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/pull/33
 
 ## 0.2.3
 [full changelog](https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/compare/v0.2.2...v0.2.3)
