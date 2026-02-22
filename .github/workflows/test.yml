@@ -24,7 +24,15 @@ jobs:
           - "2.3"
         image:
           - debian:bullseye
-          - debian:bookworm
+
+          # FIXME: Workaround for following error
+          #        gitlab-runner : Depends: gitlab-runner-helper-images (= 18.8.0-1) but 18.9.0-1 is to be installed
+          #
+          #        ref.
+          #        * https://github.com/sue445/itamae-plugin-recipe-gitlab_runner/issues/47
+          #        * https://gitlab.com/gitlab-org/gitlab-runner/-/issues/39274
+          # - debian:bookworm
+
           - amazonlinux:2
 
     steps:
